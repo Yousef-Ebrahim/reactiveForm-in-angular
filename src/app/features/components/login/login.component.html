@@ -9,6 +9,9 @@
         >Enter Your credentials to access your account</span
       >
     </div>
+    <div *ngIf="apiErrorMessage" class="alert alert-danger" role="alert">
+      {{ apiErrorMessage }}
+    </div>
     <form
       [formGroup]="loginForm"
       class="d-flex flex-column w-100"
@@ -37,11 +40,21 @@
       <mat-form-field class="py-1">
         <mat-label>Password</mat-label>
         <input
-          type="password"
+          [type]="isShowPassword ? 'text' : 'password'"
           matInput
           formControlName="password"
           placeholder="Enter your Password"
         />
+        <button
+          type="button"
+          mat-icon-button
+          (click)="setIsShowPassword()"
+          class="eye"
+        >
+          <mat-icon>{{
+            isShowPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
       </mat-form-field>
 
       <button type="submit" class="btn text-white">SIGN IN</button>

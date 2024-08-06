@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { loginPayload } from './../../interfaces/auth.interface';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -18,6 +19,11 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   ngOnInit(): void {
     this.initLoginForm();
+  }
+  apiErrorMessage: string = '';
+  isShowPassword: boolean = false;
+  setIsShowPassword(){
+    this.isShowPassword = !this.isShowPassword;
   }
   initLoginForm(): void {
     this.loginForm = this.FB.group({
