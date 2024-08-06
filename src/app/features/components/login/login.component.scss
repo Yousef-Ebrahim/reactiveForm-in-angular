@@ -1,0 +1,34 @@
+.container-fluid {
+  background-color: var(--mainColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title::before {
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    width: 6.5px;
+    height: 35px;
+    background-color: var(--mainColor);
+  }
+  .btn {
+    background-color: #feaf00;
+    width: 100%;
+    margin: 15px 0px;
+    padding: 10px;
+  }
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.253);
+}

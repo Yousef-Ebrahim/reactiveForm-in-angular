@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <section>
+    <header>
+      <h2 class="title"><strong>User Management System</strong></h2>
+    </header>
+    <div>
+      <h3 class="text-center py-4"><strong>SIGN IN</strong></h3>
+      <span class="text-secondary"
+        >Enter Your credentials to access your account</span
+      >
+    </div>
+    <form
+      [formGroup]="loginForm"
+      class="d-flex flex-column w-100"
+      (ngSubmit)="submitLogin()"
+    >
+      <mat-form-field class="py-1">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          formControlName="userName"
+          placeholder="Enter your Username"
+        />
+        <mat-error
+          *ngIf="loginForm
+         .controls?.['userName']?.hasError('required')"
+        >
+          Username is <strong>required</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="loginForm.controls?.['userName']?.hasError('userName')"
+        >
+          Username is <strong>not correct</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="py-1">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder="Enter your Password"
+        />
+      </mat-form-field>
+
+      <button type="submit" class="btn text-white">SIGN IN</button>
+    </form>
+  </section>
+</div>
